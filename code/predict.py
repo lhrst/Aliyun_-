@@ -11,15 +11,15 @@ from tqdm import tqdm
 
 #取数据集
 dataset = pd.DataFrame()
-f = open('dataset_campus_competition.txt',mode='r')
+f = open('data/dataset_campus_competition.txt',mode='r')
 s = f.readline()
 while len(s)>0:
-    w = [];
+    w = []
     for x in s[s.find('"')+1:s.find('\n')-1].split(','):
         if x == "NA":
             w.append(0)
         else:
-            w.append(float(x));
+            w.append(float(x))
     dataset[s[:s.find('"')-1]] = w
     s = f.readline()
 f.close()
@@ -52,7 +52,7 @@ def prophetprediction(s):
     return out
 
 #写入文件
-file_handle = open('prediction.txt',mode='w')
+file_handle = open('data/prediction.txt',mode='w')
 for s in tqdm(range(120)):
     wanna = prophetprediction(s)
     file_handle.write(wanna.columns.tolist()[0]+ ' "')

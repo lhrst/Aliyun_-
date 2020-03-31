@@ -16,7 +16,5 @@ python 3.6.9+/pip
 
 训练及预测
 
-> cd code
->
-> python predict.py
+> python ./code/predict.py
 
